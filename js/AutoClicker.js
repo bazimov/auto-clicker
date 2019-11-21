@@ -45,7 +45,7 @@ class AutoClicker {
 
   runAutoClick(isPrompt) {
     if (this.intervalList.length === 0) {
-      let timeout = 0;
+      let timeout = 2000;
       if (isPrompt) {
         timeout = window.prompt('Insert click interval(ms).', '0');
         if (timeout === null) {  // CASE: 취소
@@ -84,9 +84,9 @@ class AutoClicker {
 
   windowKeyupListener(event) {
     if (event.shiftKey) {
-      if (event.code === 'F1') {
+      if (event.keyCode === 32) {
         this.runAutoClick(event.altKey);
-      } else if (event.code === 'F2') {
+      } else if (event.keyCode === 17) {
         this.stopAutoClick();
       }
     }
